@@ -8,18 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		873C90642888813D00F52499 /* Fleet_List_IIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C90632888813D00F52499 /* Fleet_List_IIApp.swift */; };
-		873C90662888813D00F52499 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C90652888813D00F52499 /* ContentView.swift */; };
 		873C90682888813F00F52499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873C90672888813F00F52499 /* Assets.xcassets */; };
 		873C906C2888813F00F52499 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873C906B2888813F00F52499 /* Preview Assets.xcassets */; };
+		873C90732888823F00F52499 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C90722888823F00F52499 /* AppView.swift */; };
+		873C90752888827600F52499 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C90742888827600F52499 /* LaunchView.swift */; };
+		873C9077288882DA00F52499 /* AirlineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C9076288882DA00F52499 /* AirlineListView.swift */; };
+		873C9079288882F400F52499 /* AircraftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C9078288882F400F52499 /* AircraftListView.swift */; };
+		873C907B2888844900F52499 /* AirlineFleetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C907A2888844900F52499 /* AirlineFleetView.swift */; };
+		873C907D2888846400F52499 /* AircraftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C907C2888846400F52499 /* AircraftView.swift */; };
+		873C907F2888846F00F52499 /* AirlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C907E2888846F00F52499 /* AirlineView.swift */; };
+		873C9081288884A700F52499 /* DataFetch&Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C9080288884A700F52499 /* DataFetch&Save.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		873C90602888813D00F52499 /* Fleet List II.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fleet List II.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		873C90632888813D00F52499 /* Fleet_List_IIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fleet_List_IIApp.swift; sourceTree = "<group>"; };
-		873C90652888813D00F52499 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		873C90672888813F00F52499 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		873C90692888813F00F52499 /* Fleet_List_II.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fleet_List_II.entitlements; sourceTree = "<group>"; };
 		873C906B2888813F00F52499 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		873C90722888823F00F52499 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		873C90742888827600F52499 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		873C9076288882DA00F52499 /* AirlineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListView.swift; sourceTree = "<group>"; };
+		873C9078288882F400F52499 /* AircraftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftListView.swift; sourceTree = "<group>"; };
+		873C907A2888844900F52499 /* AirlineFleetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineFleetView.swift; sourceTree = "<group>"; };
+		873C907C2888846400F52499 /* AircraftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftView.swift; sourceTree = "<group>"; };
+		873C907E2888846F00F52499 /* AirlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineView.swift; sourceTree = "<group>"; };
+		873C9080288884A700F52499 /* DataFetch&Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataFetch&Save.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +67,14 @@
 			isa = PBXGroup;
 			children = (
 				873C90632888813D00F52499 /* Fleet_List_IIApp.swift */,
-				873C90652888813D00F52499 /* ContentView.swift */,
+				873C90722888823F00F52499 /* AppView.swift */,
+				873C90742888827600F52499 /* LaunchView.swift */,
+				873C9076288882DA00F52499 /* AirlineListView.swift */,
+				873C907A2888844900F52499 /* AirlineFleetView.swift */,
+				873C9078288882F400F52499 /* AircraftListView.swift */,
+				873C907E2888846F00F52499 /* AirlineView.swift */,
+				873C907C2888846400F52499 /* AircraftView.swift */,
+				873C9080288884A700F52499 /* DataFetch&Save.swift */,
 				873C90672888813F00F52499 /* Assets.xcassets */,
 				873C90692888813F00F52499 /* Fleet_List_II.entitlements */,
 				873C906A2888813F00F52499 /* Preview Content */,
@@ -139,8 +160,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873C90662888813D00F52499 /* ContentView.swift in Sources */,
+				873C9079288882F400F52499 /* AircraftListView.swift in Sources */,
 				873C90642888813D00F52499 /* Fleet_List_IIApp.swift in Sources */,
+				873C907B2888844900F52499 /* AirlineFleetView.swift in Sources */,
+				873C907F2888846F00F52499 /* AirlineView.swift in Sources */,
+				873C90752888827600F52499 /* LaunchView.swift in Sources */,
+				873C90732888823F00F52499 /* AppView.swift in Sources */,
+				873C907D2888846400F52499 /* AircraftView.swift in Sources */,
+				873C9081288884A700F52499 /* DataFetch&Save.swift in Sources */,
+				873C9077288882DA00F52499 /* AirlineListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
