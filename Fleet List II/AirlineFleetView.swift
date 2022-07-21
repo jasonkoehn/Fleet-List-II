@@ -18,7 +18,7 @@ struct AirlineFleetView: View {
     var types: [Types] = []
     var body: some View {
         VStack {
-            NavigationLink(destination: {AirlineView(name: name, country: country, website: website, iata: iata, icao: icao, callsign: callsign)}) {
+            NavigationLink(destination: {AirlineView(name: name, country: country, website: website, iata: iata, icao: icao, callsign: callsign, fleetsize: aircraft.count)}) {
                 VStack {
                     Image(name)
                         .resizable()
@@ -89,6 +89,10 @@ struct AirlineFleetView: View {
         let decoder = PropertyListDecoder()
         let response = try! decoder.decode([Aircraft].self, from: data)
         aircraft = response
+        aircraft.sort {
+            $0.registration < $1.registration
+        }
+        
     }
 }
 

@@ -35,12 +35,12 @@ struct AirlineListView: View {
             Task {
                 await loadCountriesfromapi()
                 saveCountries()
-//                loadCountries()
-//                await loadAirlinesfromapi()
-//                saveAirlines()
-//                loadAirlines()
-//                await loadAircraftfromapi()
-//                saveAircraft()
+                loadCountries()
+                await loadAirlinesfromapi()
+                saveAirlines()
+                loadAirlines()
+                await loadAircraftfromapi()
+                saveAircraft()
             }
         }
     }
