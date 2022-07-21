@@ -26,7 +26,6 @@ struct Types: Codable {
 struct Aircraft: Codable {
     var operater: String
     var type: String
-    var model: String
     var registration: String
     var delivery_date: String
     var hex: String
@@ -44,6 +43,7 @@ struct Country: Codable {
 var airlinesBeforeSave: [Airline] = []
 var countriesBeforeSave: [Country] = []
 var aircraftBeforeSave: [Aircraft] = []
+var typesBeforeSave: [Types] = []
 
 
 // Load from API Functions
@@ -92,6 +92,21 @@ func loadCountriesfromapi() async {
     }
 }
 
+func loadTypesfromapi() async {
+    guard let url = URL(string: "https://jasonkoehn.github.io/FleetList/Types.json") else {
+        print("Invalid URL")
+        return
+    }
+    do {
+        let (data, _) = try await URLSession.shared.data(from: url)
+        if let decodedResponse = try? JSONDecoder().decode([Types].self, from: data) {
+            typesBeforeSave = decodedResponse
+        }
+    } catch {
+        print("Invalid data")
+    }
+}
+
 // Save to FileManangerFunctions
 func saveAirlines() {
     let manager = FileManager.default
@@ -123,11 +138,33 @@ func saveCountries() {
     try! encodedData.write(to: fileUrl)
 }
 
+func saveTypes() {
+    let manager = FileManager.default
+    guard let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
+    let fileUrl = url.appendingPathComponent("types.plist")
+    manager.createFile(atPath: fileUrl.path, contents: nil, attributes: nil)
+    let encoder = PropertyListEncoder()
+    let encodedData = try! encoder.encode(typesBeforeSave)
+    try! encodedData.write(to: fileUrl)
+}
+
 
 //Button(action: {
 //    let encoder = JSONEncoder()
 //    encoder.outputFormatting = .prettyPrinted
 //    guard let encoded = try? encoder.encode(airlines) else {
+//        print("Failed to encode order")
+//        return
+//    }
+//    print(String(data: encoded, encoding: .utf8)!)
+//}){
+//    Text("Send")
+//}
+
+//Button(action: {
+//    let encoder = JSONEncoder()
+//    encoder.outputFormatting = .prettyPrinted
+//    guard let encoded = try? encoder.encode(aircraft) else {
 //        print("Failed to encode order")
 //        return
 //    }

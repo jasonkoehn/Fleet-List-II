@@ -41,6 +41,8 @@ struct AirlineListView: View {
                 loadAirlines()
                 await loadAircraftfromapi()
                 saveAircraft()
+                await loadTypesfromapi()
+                saveTypes()
             }
         }
     }
