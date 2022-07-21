@@ -18,7 +18,7 @@ struct AirlineFleetView: View {
     var types: [Types] = []
     var body: some View {
         VStack {
-            NavigationLink(destination: {AirlineView(name: name, country: country, website: website, iata: iata, icao: icao, callsign: callsign, fleetsize: aircraft.count)}) {
+            NavigationLink(destination: {AirlineView(name: name, country: country, website: website, iata: iata, icao: icao, callsign: callsign)}) {
                 VStack {
                     Image(name)
                         .resizable()
@@ -50,7 +50,7 @@ struct AirlineFleetView: View {
                 ForEach(types, id: \.type) { types in
                     Section(types.type) {
                         ForEach(aircraft, id: \.hex) { aircraft in
-                            if types.type == aircraft.type {
+                            if aircraft.operater == name && aircraft.type == types.type {
                                 NavigationLink(destination: {AircraftView(name: name, type: aircraft.type, model: aircraft.model, registration: aircraft.registration, delivery_date: aircraft.delivery_date, hex: aircraft.hex, msn: aircraft.msn, ln: aircraft.ln, fn: aircraft.fn)}) {
                                     HStack {
                                         HStack {
