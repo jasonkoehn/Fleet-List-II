@@ -14,7 +14,6 @@ struct AirlineView: View {
     var iata: String
     var icao: String
     var callsign: String
-    var fleetsize: Int
     var body: some View {
         VStack {
             Image(name)
@@ -65,8 +64,8 @@ struct AirlineView: View {
                     Text("Fleet Size")
                         .italic()
                         .font(.headline)
-                    Text("\(fleetsize)")
-                        .font(.system(size: 20))
+//                    Text("\(fleetsize)")
+//                        .font(.system(size: 20))
                     Spacer()
                 }.padding(3)
             Spacer()
@@ -76,6 +75,6 @@ struct AirlineView: View {
 
 struct AirlineView_Previews: PreviewProvider {
     static var previews: some View {
-        AirlineView(name: "Southwest Airlines", country: "United States", website: "southwest.com", iata: "WN", icao: "SWA", callsign: "SOUTHWEST", fleetsize: 735)
+        AirlineView(name: "Southwest Airlines", country: "United States", website: "southwest.com", iata: "WN", icao: "SWA", callsign: "SOUTHWEST")
     }
 }

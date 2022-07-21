@@ -50,7 +50,7 @@ struct AirlineFleetView: View {
                 ForEach(types, id: \.type) { types in
                     Section(types.type) {
                         ForEach(aircraft, id: \.hex) { aircraft in
-                            if aircraft.operater == name {
+                            if types.type == aircraft.type {
                                 NavigationLink(destination: {AircraftView(name: name, type: aircraft.type, model: aircraft.model, registration: aircraft.registration, delivery_date: aircraft.delivery_date, hex: aircraft.hex, msn: aircraft.msn, ln: aircraft.ln, fn: aircraft.fn)}) {
                                     HStack {
                                         HStack {
@@ -91,3 +91,5 @@ struct AirlineFleetView: View {
         aircraft = response
     }
 }
+
+
