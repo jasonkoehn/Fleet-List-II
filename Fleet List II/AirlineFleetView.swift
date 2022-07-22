@@ -18,7 +18,7 @@ struct AirlineFleetView: View {
     var types: [Types] = []
     var body: some View {
         VStack {
-            NavigationLink(destination: {AirlineView(name: name, country: country, website: website, iata: iata, icao: icao, callsign: callsign, fleetsize: aircraft.count)}) {
+            NavigationLink(destination: {AirlineView(name: name, country: country, website: website, iata: iata, icao: icao, callsign: callsign, fleetsize: 9)}) {
                 VStack {
                     Image(name)
                         .resizable()
