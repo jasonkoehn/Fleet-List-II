@@ -124,6 +124,19 @@ struct AircraftView: View {
             .disabled(true)
             Spacer()
         }
+        .task {
+            convertDate()
+        }
+    }
+    func convertDate() {
+        let fmt = DateFormatter()
+        fmt.locale = Locale(identifier: "en_US_POSIX")
+        fmt.dateFormat = "yyyy-MM-dd"
+        
+        let dt = fmt.date(from: delivery_date)!
+        
+        fmt.dateFormat = "EEEE, MMM d, yyyy"
+        print(fmt.string(from: dt))
     }
 }
 
