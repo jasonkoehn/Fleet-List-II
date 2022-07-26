@@ -16,7 +16,7 @@ struct AircraftListView: View {
                 Section(types.model) {
                     ForEach(aircraft, id: \.hex) { aircraft in
                         if types.type == aircraft.type {
-                            NavigationLink(destination: {AircraftView(name: aircraft.operater, type: aircraft.type, model: types.model, registration: aircraft.registration, delivery_date: aircraft.delivery_date, hex: aircraft.hex, msn: aircraft.msn, ln: aircraft.ln, fn: aircraft.fn)}) {
+                            NavigationLink(destination: {AircraftView(name: aircraft.operater, type: aircraft.type, model: types.model, registration: aircraft.registration, delivery_date: aircraft.delivery_date, hex: aircraft.hex, msn: aircraft.msn, ln: aircraft.ln, fn: aircraft.fn, firstflight: aircraft.firstflight)}) {
                                 HStack {
                                     HStack {
                                         Text(aircraft.registration)

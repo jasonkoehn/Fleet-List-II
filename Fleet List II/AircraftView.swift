@@ -17,6 +17,7 @@ struct AircraftView: View {
     var msn: Int
     var ln: Int
     var fn: Int
+    var firstflight: String
     @State var decodedDate = ""
     @State var years = 0
     @State var months = 0
@@ -80,10 +81,11 @@ struct AircraftView: View {
                         Spacer()
                     }
                     .frame(width: 115)
-                    Text("\(years)")
+                    Text("\(years) years")
                         .font(.system(size: 25))
-                    Text("\(months)")
+                    Text("\(months) months")
                         .font(.system(size: 25))
+                        .padding(.horizontal)
                     Spacer()
                 }
                 //
@@ -145,6 +147,7 @@ struct AircraftView: View {
         }
         .task {
             convertDate()
+            convertToTime()
         }
     }
     func convertDate() {
@@ -154,10 +157,16 @@ struct AircraftView: View {
         
         let dt = fmt.date(from: delivery_date)!
         
-        let tdt = Date()
-        
         fmt.dateFormat = "MMM d, yyyy"
         decodedDate = fmt.string(from: dt)
+    }
+    func convertToTime() {
+        let fmt = DateFormatter()
+        fmt.locale = Locale(identifier: "en_US_POSIX")
+        fmt.dateFormat = "yyyy-MM-dd"
+        
+        let dt = fmt.date(from: firstflight)!
+        let tdt = Date()
         
         let diffs = Calendar.current.dateComponents([.year, .month, .day], from: dt, to: tdt)
         years = diffs.year!
@@ -167,6 +176,6 @@ struct AircraftView: View {
 
 struct AircraftView_Previews: PreviewProvider {
     static var previews: some View {
-        AircraftView(name: "Southwest Airlines", type: "B38M", model: "Boeing 737 MAX 8", registration: "N8707P", delivery_date: "2017-09-25", hex: "ABF9B1", msn: 36929, ln: 5992, fn: 8707)
+        AircraftView(name: "Southwest Airlines", type: "B38M", model: "Boeing 737 MAX 8", registration: "N8707P", delivery_date: "2017-09-25", hex: "ABF9B1", msn: 36929, ln: 5992, fn: 8707, firstflight: "aircraft.firstflight")
     }
 }

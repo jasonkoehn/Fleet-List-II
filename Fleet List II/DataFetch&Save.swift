@@ -28,6 +28,7 @@ struct Aircraft: Codable {
     var type: String
     var registration: String
     var delivery_date: String
+    var firstflight: String
     var hex: String
     var msn: Int
     var ln: Int
