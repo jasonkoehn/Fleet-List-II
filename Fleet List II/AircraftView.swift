@@ -17,6 +17,9 @@ struct AircraftView: View {
     var msn: Int
     var ln: Int
     var fn: Int
+    @State var decodedDate = ""
+    @State var years = 0
+    @State var months = 0
     var body: some View {
         VStack {
             Image(name)
@@ -64,10 +67,26 @@ struct AircraftView: View {
                         Spacer()
                     }
                     .frame(width: 115)
-                    Text(delivery_date)
+                    Text(decodedDate)
                         .font(.system(size: 25))
                     Spacer()
                 }
+                //
+                HStack {
+                    HStack {
+                        Text("Age:")
+                            .font(.system(size: 25))
+                            .italic()
+                        Spacer()
+                    }
+                    .frame(width: 115)
+                    Text("\(years)")
+                        .font(.system(size: 25))
+                    Text("\(months)")
+                        .font(.system(size: 25))
+                    Spacer()
+                }
+                //
                 HStack {
                     HStack {
                         Text("Hex:")
@@ -135,8 +154,14 @@ struct AircraftView: View {
         
         let dt = fmt.date(from: delivery_date)!
         
-        fmt.dateFormat = "EEEE, MMM d, yyyy"
-        print(fmt.string(from: dt))
+        let tdt = Date()
+        
+        fmt.dateFormat = "MMM d, yyyy"
+        decodedDate = fmt.string(from: dt)
+        
+        let diffs = Calendar.current.dateComponents([.year, .month, .day], from: dt, to: tdt)
+        years = diffs.year!
+        months = diffs.month!
     }
 }
 
