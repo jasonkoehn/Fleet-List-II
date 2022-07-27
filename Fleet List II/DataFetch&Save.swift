@@ -27,7 +27,7 @@ struct Aircraft: Codable {
     var operater: String
     var type: String
     var registration: String
-    var delivery_date: String
+    var deliverydate: String
     var firstflight: String
     var hex: String
     var msn: Int
@@ -43,7 +43,6 @@ struct Country: Codable {
 // Data Arrays
 var airlinesBeforeSave: [Airline] = []
 var countriesBeforeSave: [Country] = []
-var aircraftBeforeSave: [Aircraft] = []
 var typesBeforeSave: [Types] = []
 
 
@@ -57,21 +56,6 @@ func loadAirlinesfromapi() async {
         let (data, _) = try await URLSession.shared.data(from: url)
         if let decodedResponse = try? JSONDecoder().decode([Airline].self, from: data) {
             airlinesBeforeSave = decodedResponse
-        }
-    } catch {
-        print("Invalid data")
-    }
-}
-
-func loadAircraftfromapi() async {
-    guard let url = URL(string: "https://jasonkoehn.github.io/FleetList/Aircraft.json") else {
-        print("Invalid URL")
-        return
-    }
-    do {
-        let (data, _) = try await URLSession.shared.data(from: url)
-        if let decodedResponse = try? JSONDecoder().decode([Aircraft].self, from: data) {
-            aircraftBeforeSave = decodedResponse
         }
     } catch {
         print("Invalid data")
@@ -116,16 +100,6 @@ func saveAirlines() {
     manager.createFile(atPath: fileUrl.path, contents: nil, attributes: nil)
     let encoder = PropertyListEncoder()
     let encodedData = try! encoder.encode(airlinesBeforeSave)
-    try! encodedData.write(to: fileUrl)
-}
-
-func saveAircraft() {
-    let manager = FileManager.default
-    guard let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
-    let fileUrl = url.appendingPathComponent("aircraft.plist")
-    manager.createFile(atPath: fileUrl.path, contents: nil, attributes: nil)
-    let encoder = PropertyListEncoder()
-    let encodedData = try! encoder.encode(aircraftBeforeSave)
     try! encodedData.write(to: fileUrl)
 }
 

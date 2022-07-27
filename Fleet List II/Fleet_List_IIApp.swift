@@ -15,8 +15,6 @@ struct Fleet_List_IIApp: App {
             saveCountries()
             await loadAirlinesfromapi()
             saveAirlines()
-            await loadAircraftfromapi()
-            saveAircraft()
             await loadTypesfromapi()
             saveTypes()
         }

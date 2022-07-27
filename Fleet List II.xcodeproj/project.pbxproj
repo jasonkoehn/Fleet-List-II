@@ -18,6 +18,7 @@
 		873C907D2888846400F52499 /* AircraftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C907C2888846400F52499 /* AircraftView.swift */; };
 		873C907F2888846F00F52499 /* AirlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C907E2888846F00F52499 /* AirlineView.swift */; };
 		873C9081288884A700F52499 /* DataFetch&Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C9080288884A700F52499 /* DataFetch&Save.swift */; };
+		87564D582891BA4F004E3C3A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87564D572891BA4F004E3C3A /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		873C907C2888846400F52499 /* AircraftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftView.swift; sourceTree = "<group>"; };
 		873C907E2888846F00F52499 /* AirlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineView.swift; sourceTree = "<group>"; };
 		873C9080288884A700F52499 /* DataFetch&Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataFetch&Save.swift"; sourceTree = "<group>"; };
+		87564D572891BA4F004E3C3A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				873C907E2888846F00F52499 /* AirlineView.swift */,
 				873C907C2888846400F52499 /* AircraftView.swift */,
 				873C9080288884A700F52499 /* DataFetch&Save.swift */,
+				87564D572891BA4F004E3C3A /* SettingsView.swift */,
 				873C90672888813F00F52499 /* Assets.xcassets */,
 				873C90692888813F00F52499 /* Fleet_List_II.entitlements */,
 				873C906A2888813F00F52499 /* Preview Content */,
@@ -165,6 +168,7 @@
 				873C907B2888844900F52499 /* AirlineFleetView.swift in Sources */,
 				873C907F2888846F00F52499 /* AirlineView.swift in Sources */,
 				873C90752888827600F52499 /* LaunchView.swift in Sources */,
+				87564D582891BA4F004E3C3A /* SettingsView.swift in Sources */,
 				873C90732888823F00F52499 /* AppView.swift in Sources */,
 				873C907D2888846400F52499 /* AircraftView.swift in Sources */,
 				873C9081288884A700F52499 /* DataFetch&Save.swift in Sources */,

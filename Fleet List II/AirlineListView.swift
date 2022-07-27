@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AirlineListView: View {
+    //    @AppStorage("CountriesExpandable") var expandableCountries = false
+    //    @State var showSettingsView = false
     @State var airlines: [Airline] = []
     @State var countries: [Country] = []
     var body: some View {
@@ -25,12 +27,18 @@ struct AirlineListView: View {
                 }
             }
         }
+        .listStyle(PlainListStyle())
         .task {
             loadCountries()
             loadAirlines()
         }
         .navigationTitle("Airlines")
-        .listStyle(PlainListStyle())
+        //            .navigationBarItems(trailing: Button(action: {
+        //                self.showSettingsView.toggle()
+        //            }){
+        //                Image(systemName: "gear")
+        //                    .font(.system(size: 16))
+        //            })
         .refreshable {
             Task {
                 await loadCountriesfromapi()
@@ -39,12 +47,15 @@ struct AirlineListView: View {
                 await loadAirlinesfromapi()
                 saveAirlines()
                 loadAirlines()
-                await loadAircraftfromapi()
-                saveAircraft()
                 await loadTypesfromapi()
                 saveTypes()
             }
         }
+        //            .sheet(isPresented: $showSettingsView) {
+        //                NavigationView {
+        //                    SettingsView()
+        //                }
+        //            }
     }
     func loadAirlines() {
         let manager = FileManager.default

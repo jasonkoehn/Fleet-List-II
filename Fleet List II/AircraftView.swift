@@ -12,7 +12,7 @@ struct AircraftView: View {
     var type: String
     var model: String
     var registration: String
-    var delivery_date: String
+    var deliverydate: String
     var hex: String
     var msn: Int
     var ln: Int
@@ -155,7 +155,7 @@ struct AircraftView: View {
         fmt.locale = Locale(identifier: "en_US_POSIX")
         fmt.dateFormat = "yyyy-MM-dd"
         
-        let dt = fmt.date(from: delivery_date)!
+        let dt = fmt.date(from: deliverydate)!
         
         fmt.dateFormat = "MMM d, yyyy"
         decodedDate = fmt.string(from: dt)
@@ -176,6 +176,6 @@ struct AircraftView: View {
 
 struct AircraftView_Previews: PreviewProvider {
     static var previews: some View {
-        AircraftView(name: "Southwest Airlines", type: "B38M", model: "Boeing 737 MAX 8", registration: "N8707P", delivery_date: "2017-09-25", hex: "ABF9B1", msn: 36929, ln: 5992, fn: 8707, firstflight: "aircraft.firstflight")
+        AircraftView(name: "Southwest Airlines", type: "B38M", model: "Boeing 737 MAX 8", registration: "N8707P", deliverydate: "2017-09-25", hex: "ABF9B1", msn: 36929, ln: 5992, fn: 8707, firstflight: "aircraft.firstflight")
     }
 }
