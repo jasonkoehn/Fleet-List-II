@@ -123,7 +123,6 @@ struct AirlineFleetView: View {
                 saveAircraft()
                 loadAircraft()
             }
-            print("Load Data From Web")
         }
     }
 }

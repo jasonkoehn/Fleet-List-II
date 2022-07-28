@@ -8,25 +8,20 @@
 import SwiftUI
 
 struct AppView: View {
-    @AppStorage("Launched") var appLaunched = false
     var body: some View {
-        if appLaunched == false {
-            LaunchView()
-        } else {
-            TabView {
-                NavigationView {
-                    AirlineListView()
-                }
-                .tabItem {
-                    Image(systemName: "list.bullet")
-                    Text("Airlines")
-                }
-                NavigationView {
-                    CountriesView()
-                }.tabItem {
-                    Image(systemName: "list.bullet")
-                    Text("Countries")
-                }
+        TabView {
+            NavigationView {
+                AirlineListView()
+            }
+            .tabItem {
+                Image(systemName: "airplane")
+                Text("Airlines")
+            }
+            NavigationView {
+                CountriesView()
+            }.tabItem {
+                Image(systemName: "list.bullet")
+                Text("Countries")
             }
         }
     }

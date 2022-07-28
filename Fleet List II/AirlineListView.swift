@@ -43,12 +43,19 @@ struct AirlineListView: View {
         let manager = FileManager.default
         guard let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
         let fileUrl = url.appendingPathComponent("airlines.plist")
-        let data = try! Data(contentsOf: fileUrl)
-        let decoder = PropertyListDecoder()
-        let response = try! decoder.decode([Airline].self, from: data)
-        airlines = response
-        airlines.sort {
-            $0.name < $1.name
+        if let data = try? Data(contentsOf: fileUrl) {
+            let decoder = PropertyListDecoder()
+            let response = try! decoder.decode([Airline].self, from: data)
+            airlines = response
+            airlines.sort {
+                $0.name < $1.name
+            }
+        } else {
+            Task {
+                await loadAirlinesfromapi()
+                saveAirlines()
+                loadAirlines()
+            }
         }
     }
 }
