@@ -18,7 +18,7 @@ struct AppView: View {
                 Text("Airlines")
             }
             NavigationView {
-                CountriesView()
+                CountriesListView()
             }.tabItem {
                 Image(systemName: "list.bullet")
                 Text("Countries")

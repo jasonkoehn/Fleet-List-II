@@ -43,6 +43,8 @@ struct Country: Codable {
 // Data Arrays
 var airlinesBeforeSave: [Airline] = []
 var countriesBeforeSave: [Country] = []
+var alphabet: [String] = ["A", "B", "D", "F", "H", "J", "L", "P", "S", "U", "W"]
+var leftovers = ["C", "E", "G", "I", "K", "M", "N", "O", "Q", "R", "T", "V", "X", "Y", "Z"]
 
 
 // Load from API Functions

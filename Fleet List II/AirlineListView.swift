@@ -9,8 +9,6 @@ import SwiftUI
 
 struct AirlineListView: View {
     @State var airlines: [Airline] = []
-    @State var alphabet: [String] = ["A", "B", "D", "F", "H", "J", "L", "P", "S", "U", "W"]
-    @State var leftovers = ["C", "E", "G", "I", "K", "M", "N", "O", "Q", "R", "T", "V", "X", "Y", "Z"]
     var body: some View {
         List {
             ForEach(alphabet, id: \.self) { alphabet in
