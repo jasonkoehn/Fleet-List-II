@@ -13,19 +13,21 @@ struct AppView: View {
         if appLaunched == false {
             LaunchView()
         } else {
-//            TabView {
+            TabView {
                 NavigationView {
                     AirlineListView()
                 }
-//                .tabItem {
-//                    Image(systemName: "airplane")
-//                }
-//                NavigationView {
-//                    AircraftListView()
-//                }.tabItem {
-//                    Image(systemName: "airplane.circle")
-//                }
-//            }
+                .tabItem {
+                    Image(systemName: "list.bullet")
+                    Text("Airlines")
+                }
+                NavigationView {
+                    CountriesView()
+                }.tabItem {
+                    Image(systemName: "list.bullet")
+                    Text("Countries")
+                }
+            }
         }
     }
 }

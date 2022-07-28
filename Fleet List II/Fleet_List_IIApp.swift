@@ -15,8 +15,6 @@ struct Fleet_List_IIApp: App {
             saveCountries()
             await loadAirlinesfromapi()
             saveAirlines()
-            await loadTypesfromapi()
-            saveTypes()
         }
     }
     var body: some Scene {

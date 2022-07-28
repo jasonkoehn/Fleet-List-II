@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct AirlineListView: View {
-    //    @AppStorage("CountriesExpandable") var expandableCountries = false
-    //    @State var showSettingsView = false
     @State var airlines: [Airline] = []
-    @State var countries: [Country] = []
+    @State var alphabet: [String] = ["A", "B", "D", "F", "H", "J", "L", "P", "S", "U", "W"]
+    @State var leftovers = ["C", "E", "G", "I", "K", "M", "N", "O", "Q", "R", "T", "V", "X", "Y", "Z"]
     var body: some View {
         List {
-            ForEach(countries, id: \.name) { country in
-                Section(country.name) {
+            ForEach(alphabet, id: \.self) { alphabet in
+                Section(alphabet) {
                     ForEach(airlines, id: \.name) { airlines in
-                        if airlines.country == country.name {
+                        if airlines.name.first?.uppercased() == alphabet {
                             NavigationLink(destination: AirlineFleetView(name: airlines.name, country: airlines.country, website: airlines.website, iata: airlines.iata, icao: airlines.icao, callsign: airlines.callsign, types: airlines.types)) {
                                 Text(airlines.name)
                                     .font(.system(size: 23))
@@ -29,33 +28,16 @@ struct AirlineListView: View {
         }
         .listStyle(PlainListStyle())
         .task {
-            loadCountries()
             loadAirlines()
         }
         .navigationTitle("Airlines")
-        //            .navigationBarItems(trailing: Button(action: {
-        //                self.showSettingsView.toggle()
-        //            }){
-        //                Image(systemName: "gear")
-        //                    .font(.system(size: 16))
-        //            })
         .refreshable {
             Task {
-                await loadCountriesfromapi()
-                saveCountries()
-                loadCountries()
                 await loadAirlinesfromapi()
                 saveAirlines()
                 loadAirlines()
-                await loadTypesfromapi()
-                saveTypes()
             }
         }
-        //            .sheet(isPresented: $showSettingsView) {
-        //                NavigationView {
-        //                    SettingsView()
-        //                }
-        //            }
     }
     func loadAirlines() {
         let manager = FileManager.default
@@ -66,18 +48,6 @@ struct AirlineListView: View {
         let response = try! decoder.decode([Airline].self, from: data)
         airlines = response
         airlines.sort {
-            $0.name < $1.name
-        }
-    }
-    func loadCountries() {
-        let manager = FileManager.default
-        guard let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
-        let fileUrl = url.appendingPathComponent("countries.plist")
-        let data = try! Data(contentsOf: fileUrl)
-        let decoder = PropertyListDecoder()
-        let response = try! decoder.decode([Country].self, from: data)
-        countries = response
-        countries.sort {
             $0.name < $1.name
         }
     }
