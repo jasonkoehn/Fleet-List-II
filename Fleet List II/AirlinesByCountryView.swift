@@ -25,7 +25,7 @@ struct AirlinesByCountryView: View {
         .task {
             loadAirlines()
         }
-        .navigationTitle("Airlines")
+        .navigationTitle(countryName)
         .refreshable {
             Task {
                 await loadAirlinesfromapi()
